@@ -1,0 +1,210 @@
+body p h1 h2 h3 div {
+    margin: 0;
+    padding: 0;
+    font-family: arial, sans-serif;
+}
+
+body {
+    color: #222;
+}
+
+
+
+.content {
+    width: 44%;
+    height: 300px;
+    margin-left: 28%;
+    margin-top: 130px;
+    text-align: center;
+}
+
+    .content .logo {
+        width: 130px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .content .row {
+        width: 100%;
+        height: 44px;
+        text-align: right;
+        position: relative;
+    }
+
+        .content .row .searchbar {
+            width: 88%;
+            height: 44px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            -webkit-box-sizing: border-box;
+            white-space: nowrap;
+            text-align: left;
+            border: 1px solid white;
+            border-radius: 2px;
+            font-size: 16px;
+            padding-left: 16px;
+            padding-right: 100px;
+
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+            transition: box-shadow 200ms cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+
+        .content .row .searchbar:hover {
+            box-shadow: 0 3px 3px 2px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.08);
+        }
+
+        .content .row .searchbar:focus {
+            border-style: none;
+            outline: 0;
+            box-shadow: 0 3px 3px 2px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.08);
+        }
+
+        .content .row .search-icon {
+            width: 23px;
+            position: absolute;
+
+            margin-left: -16%;
+            margin-top: -33px;
+        }
+
+
+.detail-container {
+    text-align: center;
+    width: 100%;
+    font-size: 18px;
+    font-family: futura;
+}
+
+    .detail-container .name {
+        font-size: 30px;
+
+    }
+
+    .detail-container .image-container {
+        margin-top: 35px;
+        width: 100%;
+
+    }
+
+    .detail-container .row {
+        width: 60%;
+        margin-left: 20%;
+        margin-top: 40px;
+        float: left;
+        margin-top: 50px;
+
+    }
+        .detail-container .td-only {
+
+            margin-top: 30px;
+            float: left;
+            color: #666666;
+
+        }
+
+        .detail-container .th-only {
+
+            margin-top: 30px;
+            float: left;
+            color: #666666;
+
+        }
+
+        .detail-container .th {
+
+            width: 30%;
+            float: left;
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .detail-container .td {
+
+            width: 50%;
+            margin-left: 20%;
+            float: left;
+            text-align: left;
+        }
+.highlight {
+    font-weight: bold;
+}
+
+a:-webkit-any-link {
+    color: #1a0dab;
+    text-decoration: none;
+}
+
+a:-webkit-any-link:hover {
+    color: #1a0dab;
+    text-decoration: underline;
+}
+
+.result-container {
+    width: 50%;
+    margin-left: 10%;
+    font-family: arial,sans-serif;
+
+}
+    .result-container .result {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+        .result-container .result .title {
+
+            color: #1a0dab;
+            font-size: 18px;
+
+        }
+
+        .result-container .result .link {
+            font-size: 14px;
+            color: #006621;
+        }
+
+        .result-container .result .info {
+
+        }
+
+            .result-container .result .info span{
+                line-height: 1.4;
+                word-wrap: break-word;
+                color: #545454;
+                font-size: small;
+            }
+
+
+.search-container {
+
+}
+    .search-container .image {
+
+    }
+
+    .search-container .row {
+
+    }
+        .search-container .row input {
+            width: 88%;
+            height: 44px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            -webkit-box-sizing: border-box;
+            white-space: nowrap;
+            text-align: left;
+            border: 1px solid white;
+            border-radius: 2px;
+            font-size: 16px;
+            padding-left: 16px;
+            padding-right: 100px;
+
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+            transition: box-shadow 200ms cubic-bezier(0.4, 0.0, 0.2, 1);
+
+        }
+
+        .search-container .row .search-icon {
+
+        }

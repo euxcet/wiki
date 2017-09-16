@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <script src="{% static 'js/script.js' %}"></script>
+</head>
+<body>
+    <div class="detail-container">
+        {% autoescape off %}
+        <div class="name">
+            {{ people.name }}
+        </div>
+        <div class="image-container">
+            <img src="{{ people.image }}">
+        </div>
+        {% for row in people.row %}
+
+            {% if forloop.counter != 1 %}
+                {% if row.0 == "" and row.1 == "" %}
+                    <div class="null">
+                    </div>
+                {% elif row.0 == "" %}
+                    <div class="row td-only">
+                        <span>
+                            {{ row.1 }}
+                        </span>
+                    </div>
+                {% elif row.1 == "" %}
+                    <div class="row th-only">
+                        <span>
+                            {{ row.0 }}
+                        </span>
+                        <br>
+                    </div>
+                {% else %}
+                    <div class="row">
+                        <div class="th">
+                            <span>
+                                {{ row.0 }}
+                            </span>
+                        </div>
+                        <div class="td">
+                            <span>
+                                {{ row.1 }}
+                            </span>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+        {% endautoescape %}
+        <div class="row th-only"></div>
+    </div>
+
+</body>
+</html>
