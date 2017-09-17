@@ -12,8 +12,10 @@
 </head>
 <body>
     <div class="search-container">
-        <img class="logo" src="{% static 'img/logo.jpg' %}" class="image" />
-        <form class="search" action="output/" method="get">
+		<div class="logo-container">
+			<img class="logo" src="{% static 'img/logo.jpg' %}" class="image" />
+		</div>
+        <form class="search" action="/search/output/" method="get">
             {% csrf_token %}
             <div class="row">
                 <input class="searchbar" maxlength="2048" type="text" name="text" autocomplete="off">
@@ -53,7 +55,7 @@
                         {% endif %}
                     {% endif %}
                 {% endfor %}
-                {% if page != psize %}
+                {% if psize != 0 and page != psize %}
                 <a href='/search/output/?text={{text}}&page={{page|add:1}}'>Next</a>
                 {% endif %}
             </div>

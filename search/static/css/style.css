@@ -180,12 +180,15 @@ a:-webkit-any-link:hover {
     height: 100px;
 
 }
-    .search-container .logo {
-        width: 65px;
-        float: left;
-        margin-left: 40px;
 
-    }
+	.search-container .logo-container {
+		width: 65px;
+		float: left;
+		margin-left: 40px;
+	}
+		.search-container .logo-container .logo {
+			width: 65px;
+		}
 
     .search-container .row {
         margin-left: 15px;
