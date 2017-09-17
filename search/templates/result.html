@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Wiki</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
     <script src="{% static 'js/script.js' %}"></script>
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}"/>
 </head>
 <body>
     <div class="search-container">
         <img class="logo" src="{% static 'img/logo.jpg' %}" class="image" />
-        <form class="search" action="/search/output/" method="get">
+        <form class="search" action="output/" method="get">
             {% csrf_token %}
             <div class="row">
                 <input class="searchbar" maxlength="2048" type="text" name="text" autocomplete="off">
@@ -36,26 +37,18 @@
             {% endif %}
         {% endfor %}
     </div>
-    <div class="page-row">
-        <div class="page-list">
-            <div class="page">
-                {% if page != 1 %}
-                    <a href='/search/output/?text={{text}}&page={{page|add:-1}}'>Prev</a>
-                {% endif %}
-                {% endautoescape %}
-                {% for p in plist %}
-                    {% if forloop.counter <= page|add:5 and forloop.counter|add:5 >= page %}
-                        {% if page == p %}
-                            <span>{{p}}</span>
-                        {% else %}
-                            <a href='/search/output/?text={{text}}&page={{p}}'>{{p}}</a>
-                        {% endif %}
+    <div class="page-list">
+        <div class="page">
+            {% endautoescape %}
+            {% for p in plist %}
+                {% if forloop.counter <= page|add:5 and forloop.counter|add:5 >= page %}
+                    {% if page == p %}
+                        <span style="font-weight:bold;">{{p}}</span>
+                    {% else %}
+                        <a href='/search/output/?text={{text}}&page={{p}}'>{{p}}</a>
                     {% endif %}
-                {% endfor %}
-                {% if page != psize %}
-                    <a href='/search/output/?text={{text}}&page={{page|add:1}}'>Next</a>
                 {% endif %}
-            </div>
+            {% endfor %}
         </div>
     </div>
 
