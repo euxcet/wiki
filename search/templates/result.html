@@ -37,18 +37,26 @@
             {% endif %}
         {% endfor %}
     </div>
-    <div class="page-list">
-        <div class="page">
-            {% endautoescape %}
-            {% for p in plist %}
-                {% if forloop.counter <= page|add:5 and forloop.counter|add:5 >= page %}
-                    {% if page == p %}
-                        <span style="font-weight:bold;">{{p}}</span>
-                    {% else %}
-                        <a href='/search/output/?text={{text}}&page={{p}}'>{{p}}</a>
-                    {% endif %}
+    <div class="page-row">
+        <div class="page-list">
+            <div class="page">
+                {% if page != 1 %}
+                <a href='/search/output/?text={{text}}&page={{page|add:-1}}'>Prev</a>
                 {% endif %}
-            {% endfor %}
+                {% endautoescape %}
+                {% for p in plist %}
+                    {% if forloop.counter <= page|add:5 and forloop.counter|add:5 >= page %}
+                        {% if page == p %}
+                            <span style="font-weight:bold;">{{p}}</span>
+                        {% else %}
+                            <a href='/search/output/?text={{text}}&page={{p}}'>{{p}}</a>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                {% if page != psize %}
+                <a href='/search/output/?text={{text}}&page={{page|add:1}}'>Next</a>
+                {% endif %}
+            </div>
         </div>
     </div>
 
