@@ -79,6 +79,7 @@ def Match(text, title):
             cursor = collection.find({'row': {'$elemMatch': {'0': re_title, '1': re_text}}})
             ap = highlight(extractCursor(cursor), t)
             res = ap if (res == []) else AndWithHighlight(res, ap)
+
     return res
 
 

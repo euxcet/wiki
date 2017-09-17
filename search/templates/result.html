@@ -10,30 +10,54 @@
     <script src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
-    <!--div class="search-container">
+    <div class="search-container">
         <img class="logo" src="{% static 'img/logo.jpg' %}" class="image" />
-        <form class="search" action="output/" method="get">
+        <form class="search" action="/search/output/" method="get">
             {% csrf_token %}
             <div class="row">
                 <input class="searchbar" maxlength="2048" type="text" name="text" autocomplete="off">
                 <img class="search-icon" src="{% static 'img/search.png' %}" />
             </div>
         </form>
-    </div-->
+    </div>
     {% autoescape off %}
     <div class="result-container">
         {% for person in people %}
-            <div class="result">
-                <div class="title"><a href='/search/detail/{{person.id}}'>{{ person.name }}</a></div>
-                <div class="link"><span>/search/detail/{{person.id}}</span></div>
-                <div class="info">
-                    <span>
-                        {{ person.text }}
-                    </span>
+            {% if forloop.counter > pfrom and forloop.counter <= pto  %}
+                <div class="result">
+                    <div class="title"><a href='/search/detail/{{person.id}}'>{{ person.name }}</a></div>
+                    <div class="link"><span>/search/detail/{{person.id}}</span></div>
+                    <div class="info">
+                        <span>
+                            {{ person.text }}
+                        </span>
+                    </div>
                 </div>
-            </div>
+            {% endif %}
         {% endfor %}
     </div>
-    {% endautoescape %}
+    <div class="page-row">
+        <div class="page-list">
+            <div class="page">
+                {% if page != 1 %}
+                    <a href='/search/output/?text={{text}}&page={{page|add:-1}}'>Prev</a>
+                {% endif %}
+                {% endautoescape %}
+                {% for p in plist %}
+                    {% if forloop.counter <= page|add:5 and forloop.counter|add:5 >= page %}
+                        {% if page == p %}
+                            <span>{{p}}</span>
+                        {% else %}
+                            <a href='/search/output/?text={{text}}&page={{p}}'>{{p}}</a>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                {% if page != psize %}
+                    <a href='/search/output/?text={{text}}&page={{page|add:1}}'>Next</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

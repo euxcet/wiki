@@ -18,9 +18,24 @@ def index(request):
 
 def output(request):
     res = models.search(request.GET['text'])
+    page = 0
+    if ('page' in request.GET):
+        page = int(request.GET['page']) - 1
+
+
+    plist = [(i + 1) for i in xrange(0, len(res) / 15 + ((len(res) % 15) > 0))]
+
     context = {
+        'text': request.GET['text'],
         'people': res,
+        'count': len(res),
+        'page': page + 1,
+        'pfrom': page * 15,
+        'psize': len(res) / 15 + ((len(res) % 15) > 0),
+        'pto': min(page * 15 + 15, len(res)),
+        'plist': plist,
     }
+    print context
     return render(request, 'result.html', context)
 
 def detail(request, people_id):
